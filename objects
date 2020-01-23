@@ -1,0 +1,89 @@
+# Define the class
+
+class parrot:
+    # give the class an attribute
+    species = "bird"
+    
+    # instantiation attributes
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    # when an object is created, it is instantiated with the variables passed to it
+    
+    # Create some instance methods..
+    def sing(self, song):
+        return "{} sings {}".format(self.name, song)
+    
+    def dance(self):
+        return "{} is now dancing".format(self.name)
+        
+# Create an instance of the class
+# Here, we give it a name & age, which qualifies the __init__ function
+blu = parrot("Blu", 10)
+woo = parrot("Woo", 15)
+
+# Access the class attributes like so..
+print("Blu is a {}".format(blu.__class__.species))
+print("Woo is a {}".format(woo.__class__.species))
+
+# Access the instance attributes like so..
+print("{} is {} years old".format(blu.name, blu.age))
+print("{} is {} years old".format(woo.name, woo.age))
+
+print(blu.sing("Happy"))
+blu.dance()
+
+# inheritance..
+class bird:
+    def __init__(self):
+        print("Bird is ready")
+    
+    def who_is_this(self):
+        print("Bird")
+    
+    def swim(self):
+        print("Swim faster")
+
+# Child class.. defined as a child of bird through the brackets..
+
+class penguin(bird):
+    def __init__(self):
+        super().__init__()
+        print("Penguin is ready")
+    
+    def who_is_this(self):
+        print("Penguin")
+    
+    def run(self):
+        print("Run faster")
+        
+ 
+peggy = penguin()
+peggy.who_is_this()
+peggy.swim()
+peggy.run()
+
+# Encapsulation
+
+# Since private, public, & protected aren't used in Python, we indicate privacy by prefixing with __atrributeName
+
+class computer:
+    def __init__(self):
+        self.__maxprice = 900
+    
+    def sell(self):
+        print("Selling price: {}".format(self.__maxprice))
+        
+    def setMaxPrice(self, price):
+        self.__maxprice = price
+        
+c = computer()
+c.sell()
+
+# Change the price
+c.__maxprice = 1000
+c.sell()
+
+# use setter function
+c.setMaxPrice(1000)
+c.sell() 
